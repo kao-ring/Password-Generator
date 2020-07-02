@@ -1,5 +1,9 @@
 # Password-Generator
 
+https://github.com/kao-ring/Password-Generator
+
+https://kao-ring.github.io/Password-Generator/
+
 This generator asks user to type or choose to make a password.
 
 - How many characters do you want in your password?
@@ -49,7 +53,7 @@ On the last, it returns inside of charBox array but joined like strings.
 return charBox.join("");
 ```
 
-###Bug fix log
+### Bug fix log
 
 - Sometimes it doesn't pick up all kinds of characters that user chose, so I added one more line for each if statement.
 
