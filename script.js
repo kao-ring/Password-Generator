@@ -39,6 +39,7 @@ function generatePassword() {
   //Put all items that user choose into one array
   var allOptions = [];
   var charBox = [];
+  var confirmTimes = 0;
 
   if (numbersChoice) {
     allOptions = allOptions.concat(numbers);
