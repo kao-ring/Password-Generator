@@ -18,6 +18,8 @@ var symbols = "~!@#$%^&*()-=_+".split("");
 var alphabetCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var alphabetLower = "abcdefghijklmnopqrstuvwhyz".split("");
 
+var confirmTimes = 0;
+
 // Write password to the #password input
 function generatePassword() {
   // WHEN prompted for the length of the password
@@ -36,24 +38,40 @@ function generatePassword() {
 
   //Put all items that user choose into one array
   var allOptions = [];
+  var charBox = [];
 
   if (numbersChoice) {
     allOptions = allOptions.concat(numbers);
+    charBox = charBox.concat(
+      numbers[Math.floor(Math.random() * numbers.length)]
+    );
+    confirmTimes++;
   }
   if (symbolsChoice) {
     allOptions = allOptions.concat(symbols);
-    console.log(allOptions);
+    charBox = charBox.concat(
+      symbols[Math.floor(Math.random() * symbols.length)]
+    );
+    confirmTimes++;
   }
   if (capsChoice) {
     allOptions = allOptions.concat(alphabetCaps);
+    charBox = charBox.concat(
+      alphabetCaps[Math.floor(Math.random() * alphabetCaps.length)]
+    );
+    confirmTimes++;
   }
   if (lowercaseChoice) {
     allOptions = allOptions.concat(alphabetLower);
+    charBox = charBox.concat(
+      alphabetLower[Math.floor(Math.random() * alphabetLower.length)]
+    );
+    confirmTimes++;
   }
 
   //Choose characters randomly from array "allOptions"
-  var charBox = [];
-  for (i = 0; i < passwordLength; i++) {
+
+  for (i = 0; i < passwordLength - confirmTimes; i++) {
     charBox = charBox.concat(
       allOptions[Math.floor(Math.random() * allOptions.length)]
     );
